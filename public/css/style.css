@@ -1,0 +1,149 @@
+main{
+    z-index: 0;
+  }
+  
+  body {
+    font-family: Mister Child;
+    background-color: #FFEBCD;
+    margin: 0;
+  }
+  
+  /* Début Menu */
+  
+  header img {
+    width : 30%;
+  }
+  
+  header{
+    position: fixed;
+    top:0;
+    width: 100%;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    transition: 0.3s;
+    background-color: #24221f;
+    opacity : 0.8;
+    margin : auto;
+  }
+  
+  header.changeColor{
+    background: #DEB887;
+    height: 10%;
+  }
+  
+  .changeColor img{
+    width: 10%;
+  }
+  
+  nav {
+    width: 50%;
+    display : flex;
+  }
+
+  ul {
+    display : flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  li{
+    width : 50%;
+  }
+  
+  li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  li a:hover{
+    transition: all 1s ease-in-out;
+    color: #20c4cf;
+  }
+  
+  /* Fin Menu */
+  
+  /* Début Movie */
+
+  .button:hover{
+    color:black;
+  }
+
+  .button{
+    color:white;
+    background-color: #E50D31;
+    border-radius: 5px;
+    padding: 10px 10px 10px 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+
+  .movie{
+    width: 100%;
+    height: 70vw;
+  }
+  
+  .movieText{
+    padding: 2%;
+    width: 30%;
+    color:white;
+    position:absolute;
+     top:15%;
+     left:15%;
+     font-size: 20px;
+  }
+  
+  video {
+    object-fit: cover;
+    width: inherit;
+    height: inherit;
+  }
+  
+  /* Fin Movie */
+
+
+/*****************************************
+             Début desktop
+******************************************/
+
+  @media screen and (min-width: 768px) {
+
+/* Début Menu */
+
+  header.changeColor{
+    height: 12%;
+  }
+
+  .changeColor img{
+    width: 5%;
+  }
+
+  /* Fin Menu */
+
+  /* Début Movie */
+
+  .movie{
+    width: 100%;
+    height: 50.45vw;
+  }
+
+  .movieText{
+    padding: 2%;
+    width: 30%;
+    color:white;
+    position:absolute;
+     top:30%;
+     left:10%;
+     font-size: 30px;
+  }
+
+  /* Fin Movie */
+
+  }

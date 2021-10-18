@@ -1,0 +1,93 @@
+/* Début Formulaire */
+
+#Formulaire{
+    background-color: #b9caca;
+}
+
+.formulaire{
+    width: 70%;
+    margin: auto;
+    color: black;
+}
+
+.formulaire h1{
+    margin-top: 0;
+    text-align: center;
+}
+
+.contact{
+    background-image: url("../pictures/background.jpg");
+    background-size: cover;
+    padding: 50px 50px;
+}
+
+label, input[type=text],input[type=email],input[type=tel]{
+    display: block;
+    width: 100%;
+    line-height: 2em;
+}
+
+input[type=text],input[type=email],input[type=tel] {
+    margin-bottom: 2em;
+    border: none;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 2px;
+    background: rgba(210,180,140,0.3);
+    padding-left: 5px;
+    outline: none;
+}
+
+label{
+    display: inline;
+}
+
+select{
+    display: inline-block;
+    border-radius: 5px;
+    background-color: rgba(210,180,140,0.3);
+    width: 40%;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-left: 2%;
+    margin-bottom: 4%;
+}
+
+input[type=radio]{
+    margin-bottom: 5%;
+}
+
+i {
+    color: gray;
+}
+
+select:focus{
+    border: 1px solid red;
+}
+
+em {
+    color: red;
+    font-weight: bold;
+}
+
+input[type=text]:focus,input[type=email]:focus,input[type=tel]:focus {
+    border: 1px solid red;
+}
+
+button {
+    display: block;
+    float: right;
+    line-height: 2em;
+    padding: 0 20px;
+    border: none;
+    background: black;
+    color: white;
+    letter-spacing: 2px;
+    transition: .2s all ease-in-out;
+    border-bottom: 2px solid transparent;
+    outline: none;
+}
+
+::selection{
+    background: rgb(231, 218, 214);
+}
+
+/* Fin Formulaire */

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Genshin Impact Accueil :-){% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css"/>
+        {% endblock %}
+
+        {% block javascripts %}
+            <link rel="javascript" href="{{ asset('javascript/script.js') }}" type="text/js"/>
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <div><a href="/" ><img src="./assets/pictures/logo.png" alt="logo" id="img"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="/Actualités">Actualités</a></li>
+                    <li><a href="/Posts">Posts</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                    <li><a href="/Inscription">Inscription</a></li>
+                    <li><a href="/Connexion">Connexion</a></li>
+                </ul>
+            </nav>
+        </header>
+              <!-- Video in background with overlay text -->
+        <section>
+            <div class="movie">
+            <video autoplay muted loop id="myVideo">
+                <source src="./assets/movie/MovieBackground.mp4" type="video/mp4">
+            </video>
+            </div>
+            <!-- Text over background movie -->
+
+        {% block body %}
+            <div class="movieText">
+                <h1>Bienvenue Voyageur !</h1>
+                <p>Voici le meilleur site communautaire de Genshin Impact ! N'hésite pas à t'inscrire pour commencer ! :p</p>
+                <a href="/Inscription" class="button">Inscription</a>
+            </div>
+        </section>
+        {% endblock %}
+    </body>
+</html>
