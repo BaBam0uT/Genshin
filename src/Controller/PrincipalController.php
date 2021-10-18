@@ -17,23 +17,4 @@ class PrincipalController extends AbstractController
         ]);
     }
 
-    #[Route('/Inscription', name: 'Inscription')]
-    public function inscription(): Response
-    {
-        return $this->render('inscription/inscription.html.twig', [
-
-        ]);
-    }
-
-    #[Route('/Actualités', name: 'Actualités')]
-    public function actualites(): Response
-    {
-        $repo = $this->getDoctrine()->getRepository(Actualites::class);
-
-        $articles = $repo->findAll();
-
-        return $this->render('actualités/actualites.html.twig', [
-            'articles' => $articles
-        ]);
-    }
 }

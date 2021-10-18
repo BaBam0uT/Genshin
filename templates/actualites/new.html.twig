@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Actualités{% endblock %}
+
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('css/style_actus.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block javascripts %}
+    <link rel="javascript" href="{{ asset('javascript/script.js') }}" type="text/js"/>
+{% endblock %}
+
+{% block body %}
+    <h1>Create new Actualites</h1>
+
+    {{ include('actualites/_form.html.twig') }}
+
+    <a href="{{ path('actualites_index') }}">back to list</a>
+{% endblock %}

@@ -1,9 +1,5 @@
 /* Début Formulaire */
 
-#Formulaire{
-    background-color: #b9caca;
-}
-
 .formulaire{
     width: 70%;
     margin: auto;
@@ -13,12 +9,6 @@
 .formulaire h1{
     margin-top: 0;
     text-align: center;
-}
-
-.contact{
-    background-image: url("../pictures/background.jpg");
-    background-size: cover;
-    padding: 50px 50px;
 }
 
 label, input[type=text],input[type=email],input[type=tel]{
@@ -32,7 +22,6 @@ input[type=text],input[type=email],input[type=tel] {
     border: none;
     border: 1px solid rgba(0,0,0,0.1);
     border-radius: 2px;
-    background: rgba(210,180,140,0.3);
     padding-left: 5px;
     outline: none;
 }
@@ -44,7 +33,6 @@ label{
 select{
     display: inline-block;
     border-radius: 5px;
-    background-color: rgba(210,180,140,0.3);
     width: 40%;
     border: 1px solid rgba(0,0,0,0.1);
     margin-left: 2%;
@@ -53,10 +41,6 @@ select{
 
 input[type=radio]{
     margin-bottom: 5%;
-}
-
-i {
-    color: gray;
 }
 
 select:focus{
@@ -78,16 +62,11 @@ button {
     line-height: 2em;
     padding: 0 20px;
     border: none;
-    background: black;
     color: white;
     letter-spacing: 2px;
     transition: .2s all ease-in-out;
     border-bottom: 2px solid transparent;
     outline: none;
-}
-
-::selection{
-    background: rgb(231, 218, 214);
 }
 
 /* Fin Formulaire */

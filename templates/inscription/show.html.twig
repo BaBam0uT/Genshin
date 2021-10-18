@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ asset('css/style_inscription.css') }}" type="text/css"/>
+{% endblock %}
+
+{% block body %}
+    <h1>Inscription</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ inscription.id }}</td>
+            </tr>
+            <tr>
+                <th>Uid</th>
+                <td>{{ inscription.uid }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ inscription.mail }}</td>
+            </tr>
+            <tr>
+                <th>Mdp</th>
+                <td>{{ inscription.mdp }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('inscription_index') }}">back to list</a>
+
+    <a href="{{ path('inscription_edit', {'id': inscription.id}) }}">edit</a>
+
+    {{ include('inscription/_delete_form.html.twig') }}
+{% endblock %}
