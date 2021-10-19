@@ -1,3 +1,8 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css"/>
+<link rel="stylesheet" href="{{ asset('css/style_inscription.css') }}" type="text/css"/>
+{% endblock %}
+
 <form method="post" action="{{ path('actualites_delete', {'id': actualite.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actualite.id) }}">
     <button class="btn">Delete</button>

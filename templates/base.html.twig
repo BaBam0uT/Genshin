@@ -18,11 +18,12 @@
             <div><a href="/" ><img src="../assets/pictures/logo.png" alt="logo" id="img"></a></div>
             <nav>
                 <ul>
-                    <li><a href="/actualites">Actualités</a></li>
-                    <li><a href="/posts">Posts</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/register">Inscription</a></li>
-                    <li><a href="/connexion">Connexion</a></li>
+                    {%if app.user %}
+                        <li><a href="/actualites">Actualités</a></li>
+                        <li><a href="/posts">Posts</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/logout">Se déconnecter</a></li>
+                    {%endif%}
                 </ul>
             </nav>
         </header>
@@ -37,9 +38,18 @@
 
         {% block body %}
             <div class="movieText">
-                <h1>Bienvenue Voyageur !</h1>
-                <p>Voici le meilleur site communautaire de Genshin Impact ! N'hésite pas à t'inscrire pour commencer ! :p</p>
-                <a href="/register" class="button">Inscription</a>
+                {%if app.user %}
+                    <h1>Bienvenue </h1>
+                    <h1 id="uid">{{ app.user.uid }}</h1>
+                    <p>C'est un plaisir de vous voir ! N'hésitez pas à consulter les dernières actualités et à voir les derniers posts de vos amis ! ^^</p>
+                    <a href ="/actualites" class="button">Actualités</a>
+                    <a href ="/posts" class="button">Posts</a>
+                {%else%}
+                    <h1>Bienvenue Voyageur !</h1>
+                    <p>Voici le meilleur site communautaire de Genshin Impact ! N'hésite pas à t'inscrire pour commencer ou alors connecte toi si tu as déjà un compte ! :p</p>
+                    <a href="/register" class="button">Inscription</a>
+                    <a href="/login" class="button">Connexion</a>
+                {%endif%}
             </div>
         </section>
         {% endblock %}

@@ -62,8 +62,7 @@ button {
     line-height: 2em;
     padding: 0 20px;
     border: none;
-    color: black;
-    background-color: black;
+    color: lightblue;
     letter-spacing: 2px;
     transition: .2s all ease-in-out;
     border-bottom: 2px solid transparent;
