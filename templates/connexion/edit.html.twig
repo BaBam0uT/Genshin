@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Connexion{% endblock %}
+
+{% block body %}
+    <h1>Edit Connexion</h1>
+
+    {{ include('connexion/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('connexion_index') }}">back to list</a>
+
+    {{ include('connexion/_delete_form.html.twig') }}
+{% endblock %}
