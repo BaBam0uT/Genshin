@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reseaux index{% endblock %}
+
+{% block body %}
+    <h1>Reseaux index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Image</th>
+                <th>Lien</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reseaux in reseauxes %}
+            <tr>
+                <td>{{ reseaux.id }}</td>
+                <td>{{ reseaux.nom }}</td>
+                <td>{{ reseaux.image }}</td>
+                <td>{{ reseaux.lien }}</td>
+                <td>
+                    <a href="{{ path('reseaux_show', {'id': reseaux.id}) }}">show</a>
+                    <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reseaux_new') }}">Create new</a>
+{% endblock %}

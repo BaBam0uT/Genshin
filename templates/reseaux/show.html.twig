@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reseaux{% endblock %}
+
+{% block body %}
+    <h1>Reseaux</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reseaux.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ reseaux.nom }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ reseaux.image }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td>{{ reseaux.lien }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reseaux_index') }}">back to list</a>
+
+    <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
+
+    {{ include('reseaux/_delete_form.html.twig') }}
+{% endblock %}

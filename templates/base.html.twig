@@ -15,13 +15,13 @@
     </head>
     <body>
         <header>
-            <div><a href="/" ><img src="../assets/pictures/logo.png" alt="logo" id="img"></a></div>
+            <div><a href="/" ><img src="../../assets/pictures/logo.png" alt="logo" id="img"></a></div>
             <nav>
                 <ul>
                     {%if app.user %}
                         <li><a href="/actualites">Actualités</a></li>
                         <li><a href="/posts">Posts</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/reseaux">Contact</a></li>
                         <li><a href="/logout">Se déconnecter</a></li>
                     {%endif%}
                 </ul>
@@ -31,7 +31,7 @@
         <section>
             <div class="movie">
             <video autoplay muted loop id="myVideo">
-                <source src="../assets/movie/MovieBackground.mp4" type="video/mp4">
+                <source src="../../assets/movie/MovieBackground.mp4" type="video/mp4">
             </video>
             </div>
             <!-- Text over background movie -->
@@ -39,8 +39,7 @@
         {% block body %}
             <div class="movieText">
                 {%if app.user %}
-                    <h1>Bienvenue </h1>
-                    <h1 id="uid">{{ app.user.uid }}</h1>
+                    <h1 id="uid">Bienvenue {{ app.user.uid }} ! <3</h1>
                     <p>C'est un plaisir de vous voir ! N'hésitez pas à consulter les dernières actualités et à voir les derniers posts de vos amis ! ^^</p>
                     <a href ="/actualites" class="button">Actualités</a>
                     <a href ="/posts" class="button">Posts</a>

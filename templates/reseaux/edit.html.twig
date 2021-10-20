@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Reseaux{% endblock %}
+
+{% block body %}
+    <h1>Edit Reseaux</h1>
+
+    {{ include('reseaux/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('reseaux_index') }}">back to list</a>
+
+    {{ include('reseaux/_delete_form.html.twig') }}
+{% endblock %}
