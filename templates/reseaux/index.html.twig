@@ -24,7 +24,9 @@
                 <td>{{ reseaux.lien }}</td>
                 <td>
                     <a href="{{ path('reseaux_show', {'id': reseaux.id}) }}">show</a>
-                    <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
+                    {%if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -35,5 +37,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('reseaux_new') }}">Create new</a>
+    {%if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('reseaux_new') }}">Create new</a>
+    {% endif %}
 {% endblock %}

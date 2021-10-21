@@ -17,8 +17,8 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ actualite.id }}</td>
+                <th>Image</th>
+                <img src="{{ asset('thumbnail/' ~ actualite.thumbnail) }}" width="30%" alt="Charge pas"><br>
             </tr>
             <tr>
                 <th>Title</th>
@@ -29,16 +29,12 @@
                 <td>{{ actualite.content }}</td>
             </tr>
             <tr>
-                <th>Image</th>
-                <td>{{ actualite.image }}</td>
-            </tr>
-            <tr>
                 <th>CreatedAt</th>
                 <td>{{ actualite.createdAt ? actualite.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
                 <th>Video</th>
-                <td>{{ actualite.video }}</td>
+                <iframe src="{{ actualite.video | raw }}" width="1000" height="500" title="vidéo article"></iframe>
             </tr>
         </tbody>
     </table>

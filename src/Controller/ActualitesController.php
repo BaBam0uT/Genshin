@@ -6,9 +6,12 @@ use App\Entity\Actualites;
 use App\Form\ActualitesType;
 use App\Repository\ActualitesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+
 
 #[Route('/actualites')]
 class ActualitesController extends AbstractController
@@ -22,11 +25,31 @@ class ActualitesController extends AbstractController
     }
 
     #[Route('/new', name: 'actualites_new', methods: ['GET','POST'])]
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $actualite = new Actualites();
         $form = $this->createForm(ActualitesType::class, $actualite);
         $form->handleRequest($request);
+
+        $thumbnailFile = $form->get('thumbnail')->getData();
+
+        if($thumbnailFile) {
+            $uploadName = pathinfo($thumbnailFile->getClientOriginalName(), PATHINFO_FILENAME);
+            $safeFilename = $slugger->slug($uploadName);
+            $storedName = $safeFilename.'-'.uniqid().'.'.$thumbnailFile->guessExtension();
+
+            try {
+                $thumbnailFile->move(
+                    $this->getParameter('thumbnail_directory'),
+                    $storedName
+                );
+            } catch(FileException $e) {
+                // handle exception ...
+            }
+
+            // update : store the filename instead of its contents
+            $actualite->setImage($storedName);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -40,6 +63,7 @@ class ActualitesController extends AbstractController
             'actualite' => $actualite,
             'form' => $form,
         ]);
+
     }
 
     #[Route('/{id}', name: 'actualites_show', methods: ['GET'])]

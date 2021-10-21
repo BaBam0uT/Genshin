@@ -42,6 +42,11 @@ class Actualites
      */
     private $video;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $thumbnail;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Actualites
     public function setVideo(string $video): self
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    public function getThumbnail(): ?string
+    {
+        return $this->thumbnail;
+    }
+
+    public function setThumbnail(string $thumbnail): self
+    {
+        $this->thumbnail = $thumbnail;
 
         return $this;
     }

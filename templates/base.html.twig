@@ -21,8 +21,11 @@
                     {%if app.user %}
                         <li><a href="/actualites">Actualités</a></li>
                         <li><a href="/posts">Posts</a></li>
-                        <li><a href="/reseaux">Contact</a></li>
+                        <li><a href="/reseaux">Réseaux</a></li>
                         <li><a href="/logout">Se déconnecter</a></li>
+                        {%if is_granted('ROLE_ADMIN') %}
+                            <li><a href="/user">Utilisateurs</a></li>
+                        {% endif %}
                     {%endif%}
                 </ul>
             </nav>
