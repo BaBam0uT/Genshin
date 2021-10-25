@@ -18,7 +18,7 @@
         <tbody>
             <tr>
                 <th>Image</th>
-                <img src="{{ asset('thumbnail/' ~ actualite.thumbnail) }}" width="30%" alt="Charge pas"><br>
+                <img src="{{ asset('uploads/thumbnails/' ~ actualite.thumbnail) }}" width="30%" alt="Charge pas"><br>
             </tr>
             <tr>
                 <th>Title</th>
@@ -41,7 +41,9 @@
 
     <a href="{{ path('actualites_index') }}">back to list</a>
 
-    <a href="{{ path('actualites_edit', {'id': actualite.id}) }}">edit</a>
+    {%if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('actualites_edit', {'id': actualite.id}) }}">edit</a>
+    {% endif %}
 
     {{ include('actualites/_delete_form.html.twig') }}
 {% endblock %}

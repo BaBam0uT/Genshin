@@ -23,7 +23,7 @@ class ActualitesType extends AbstractType
             'required' => false,
             'constraints' => [
                 new File([
-                    'maxSize' => '2048k',
+                    'maxSize' => '8000k',
                     'mimeTypes' => [
                         'image/jpg',
                         'image/png',

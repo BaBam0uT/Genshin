@@ -31,31 +31,31 @@ class ActualitesController extends AbstractController
         $form = $this->createForm(ActualitesType::class, $actualite);
         $form->handleRequest($request);
 
-        $thumbnailFile = $form->get('thumbnail')->getData();
-
-        if($thumbnailFile) {
-            $uploadName = pathinfo($thumbnailFile->getClientOriginalName(), PATHINFO_FILENAME);
-            $safeFilename = $slugger->slug($uploadName);
-            $storedName = $safeFilename.'-'.uniqid().'.'.$thumbnailFile->guessExtension();
-
-            try {
-                $thumbnailFile->move(
-                    $this->getParameter('thumbnail_directory'),
-                    $storedName
-                );
-            } catch(FileException $e) {
-                // handle exception ...
-            }
-
-            // update : store the filename instead of its contents
-            $actualite->setImage($storedName);
-        }
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $thumbnailFile = $form->get('thumbnail')->getData();
+
+            if($thumbnailFile) {
+                $uploadName = pathinfo($thumbnailFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFilename = $slugger->slug($uploadName);
+                $storedName = $safeFilename.'-'.uniqid().'.'.$thumbnailFile->guessExtension();
+
+                try {
+                    $thumbnailFile->move(
+                        $this->getParameter('thumbnail_directory'),
+                        $storedName
+                    );
+                } catch(FileException $e) {
+                    // handle exception ...
+                }
+
+                // update : store the filename instead of its contents
+                $actualite->setThumbnail($storedName);
+            }
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($actualite);
             $entityManager->flush();
-
             return $this->redirectToRoute('actualites_index', [], Response::HTTP_SEE_OTHER);
         }
 

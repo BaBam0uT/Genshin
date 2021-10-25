@@ -8,26 +8,24 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
-                <th>Image</th>
                 <th>Lien</th>
-                <th>actions</th>
+                {%if is_granted('ROLE_ADMIN') %}
+                    <th>actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for reseaux in reseauxes %}
             <tr>
-                <td>{{ reseaux.id }}</td>
                 <td>{{ reseaux.nom }}</td>
-                <td>{{ reseaux.image }}</td>
-                <td>{{ reseaux.lien }}</td>
-                <td>
-                    <a href="{{ path('reseaux_show', {'id': reseaux.id}) }}">show</a>
-                    {%if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
-                    {% endif %}
-                </td>
+                <td><a href="{{ reseaux.lien | raw }}">{{ reseaux.lien | raw }}</a></td>
+                {%if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <a href="{{ path('reseaux_show', {'id': reseaux.id}) }}">show</a>
+                            <a href="{{ path('reseaux_edit', {'id': reseaux.id}) }}">edit</a>
+                    </td>
+                {% endif %}
             </tr>
         {% else %}
             <tr>
